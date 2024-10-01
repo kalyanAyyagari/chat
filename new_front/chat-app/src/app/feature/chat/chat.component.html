@@ -1,0 +1,19 @@
+<div class="chat-container">
+  <div class="chat-header">
+    <h2>Chat Room {{socketService.room}}</h2>
+    <button (click)="leaveRoom()">Leave Room</button>
+  </div>
+  <div class="chat-messages">
+    <div *ngFor="let message of messages" style="display: flex;flex-direction: column;">
+      <small>{{ message.time }}</small>
+      <div>
+        {{message.username}} : {{message.text}}
+      </div>
+    </div>
+  </div>
+  <div class="chat-input">
+    <input type="text" [(ngModel)]="message" placeholder="Enter message" (keyup.enter)="sendMessage()">
+    <button (click)="sendMessage()">Send</button>
+  </div>
+</div>
+
